@@ -8,8 +8,7 @@ import {
   Wallet, 
   ArrowRightLeft, 
   PieChart, 
-  Target,
-  Settings 
+  Target
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +19,6 @@ const routes = [
   { href: "/dashboard/transactions", label: "Transactions", icon: ArrowRightLeft },
   { href: "/dashboard/analytics", label: "Analytics", icon: PieChart },
   { href: "/dashboard/goals", label: "Savings Goals", icon: Target },
-  { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
 export default function Sidebar() {
