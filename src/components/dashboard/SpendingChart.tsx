@@ -56,7 +56,7 @@ export default function SpendingChart({ transactions }: { transactions: Transact
           />
           <Tooltip 
             cursor={{ fill: '#f1f5f9' }}
-            formatter={(value: number) => [`₨ ${value.toLocaleString()}`, 'Amount']}
+            formatter={(value: any) => [`₨ ${value.toLocaleString()}`, 'Amount']}
           />
           <Bar dataKey="amount" fill="#0f172a" radius={[4, 4, 0, 0]} maxBarSize={50} />
         </BarChart>

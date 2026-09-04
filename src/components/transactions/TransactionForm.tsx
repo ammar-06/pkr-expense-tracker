@@ -37,7 +37,7 @@ export default function TransactionForm({ type, onSuccess }: TransactionFormProp
   const categories = type === "expense" ? DEFAULT_EXPENSE_CATEGORIES : DEFAULT_INCOME_CATEGORIES;
 
   const form = useForm<TransactionFormValues>({
-    resolver: zodResolver(transactionSchema),
+    resolver: zodResolver(transactionSchema) as any,
     defaultValues: {
       amount: 0,
       category: "",
@@ -78,7 +78,7 @@ export default function TransactionForm({ type, onSuccess }: TransactionFormProp
   };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="amount">Amount (₨)</Label>
         <Input 
@@ -96,7 +96,7 @@ export default function TransactionForm({ type, onSuccess }: TransactionFormProp
         <div className="space-y-2">
           <Label htmlFor="category">Category</Label>
           <Select 
-            onValueChange={(val) => form.setValue("category", val)}
+            onValueChange={(val) => form.setValue("category", val as string)}
             defaultValue={form.getValues("category")}
           >
             <SelectTrigger>
@@ -138,7 +138,7 @@ export default function TransactionForm({ type, onSuccess }: TransactionFormProp
       <div className="space-y-2">
         <Label htmlFor="paymentMethod">Payment Method</Label>
         <Select 
-          onValueChange={(val) => form.setValue("paymentMethod", val)}
+          onValueChange={(val) => form.setValue("paymentMethod", val as string)}
           defaultValue={form.getValues("paymentMethod")}
         >
           <SelectTrigger>
