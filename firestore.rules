@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is accessing their own data
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // User's own base document
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+      
+      // All nested collections under the user's document
+      match /expenses/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /income/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /transactions/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /budgets/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /savingsGoals/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /recurringExpenses/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /categories/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /paymentMethods/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+      match /settings/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+    
+    // Block access to everything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
