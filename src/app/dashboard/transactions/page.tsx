@@ -31,8 +31,7 @@ export default function TransactionsPage() {
     
     const q = query(
       collection(db, `users/${user.uid}/transactions`),
-      orderBy("date", "desc"),
-      orderBy("createdAt", "desc")
+      orderBy("date", "desc")
     );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -42,6 +41,9 @@ export default function TransactionsPage() {
       })) as Transaction[];
       
       setTransactions(data);
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching transactions:", error);
       setLoading(false);
     });
 

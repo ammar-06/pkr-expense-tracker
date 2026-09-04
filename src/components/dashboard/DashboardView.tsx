@@ -24,8 +24,7 @@ export default function DashboardView() {
     // Use onSnapshot for real-time updates on dashboard
     const q = query(
       collection(db, `users/${user.uid}/transactions`),
-      orderBy("date", "desc"),
-      orderBy("createdAt", "desc")
+      orderBy("date", "desc")
     );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -35,6 +34,9 @@ export default function DashboardView() {
       })) as Transaction[];
       
       setTransactions(data);
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching transactions:", error);
       setLoading(false);
     });
 
