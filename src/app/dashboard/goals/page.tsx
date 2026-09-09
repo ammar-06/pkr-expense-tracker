@@ -78,7 +78,7 @@ export default function GoalsPage() {
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
       ) : goals.length === 0 ? (
-        <div className="text-center py-12 text-slate-500 border rounded-lg bg-white dark:bg-slate-900">
+        <div className="text-center py-12 text-muted-foreground border rounded-lg bg-white dark:bg-slate-900">
           No savings goals found. Create one to get started!
         </div>
       ) : (
@@ -92,7 +92,7 @@ export default function GoalsPage() {
                   <Button 
                     variant="ghost" 
                     size="icon" 
-                    className="h-8 w-8 text-slate-400 hover:text-red-600"
+                    className="h-8 w-8 text-muted-foreground hover:text-red-600"
                     onClick={() => handleDelete(goal.id)}
                   >
                     <Trash2 className="h-4 w-4" />
@@ -104,13 +104,13 @@ export default function GoalsPage() {
                       <span className="font-medium">{formatPKR(goal.currentAmount)} saved</span>
                       <span className="text-muted-foreground">Target: {formatPKR(goal.targetAmount)}</span>
                     </div>
-                    <div className="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-3 w-full bg-muted rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-primary transition-all duration-500" 
                         style={{ width: `${progress}%` }} 
                       />
                     </div>
-                    <div className="text-xs text-right font-medium text-slate-500">
+                    <div className="text-xs text-right font-medium text-muted-foreground">
                       {progress}%
                     </div>
                   </div>

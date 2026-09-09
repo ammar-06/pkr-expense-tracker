@@ -7,7 +7,7 @@ import { format, parseISO } from "date-fns";
 export default function RecentTransactions({ transactions }: { transactions: Transaction[] }) {
   if (transactions.length === 0) {
     return (
-      <div className="text-sm text-slate-500 text-center py-4">
+      <div className="text-sm text-muted-foreground text-center py-4">
         No recent transactions
       </div>
     );
@@ -19,7 +19,7 @@ export default function RecentTransactions({ transactions }: { transactions: Tra
         <div key={t.id} className="flex items-center justify-between border-b pb-2 last:border-0 last:pb-0">
           <div className="flex flex-col">
             <span className="font-medium text-sm">{t.description || t.category}</span>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-muted-foreground">
               {format(parseISO(t.date), "dd MMM")} • {t.category}
             </span>
           </div>

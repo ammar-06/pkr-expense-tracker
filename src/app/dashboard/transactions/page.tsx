@@ -75,7 +75,7 @@ export default function TransactionsPage() {
         </div>
       </div>
 
-      <div className="rounded-md border bg-white dark:bg-slate-900">
+      <div className="rounded-md border bg-card text-card-foreground">
         <Table>
           <TableHeader>
             <TableRow>
@@ -96,7 +96,7 @@ export default function TransactionsPage() {
               </TableRow>
             ) : transactions.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center text-slate-500">
+                <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
                   No transactions found.
                 </TableCell>
               </TableRow>
@@ -110,7 +110,7 @@ export default function TransactionsPage() {
                     {t.description || "-"}
                   </TableCell>
                   <TableCell>
-                    <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-800 dark:bg-slate-800 dark:text-slate-100">
+                    <span className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-foreground dark:bg-muted dark:text-foreground">
                       {t.category}
                     </span>
                   </TableCell>
@@ -130,7 +130,7 @@ export default function TransactionsPage() {
                     <Button 
                       variant="ghost" 
                       size="icon"
-                      className="h-8 w-8 text-slate-500 hover:text-red-600"
+                      className="h-8 w-8 text-muted-foreground hover:text-red-600"
                       onClick={() => handleDelete(t.id)}
                     >
                       <Trash2 className="h-4 w-4" />

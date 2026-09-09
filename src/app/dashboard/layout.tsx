@@ -5,9 +5,9 @@ import Navbar from "@/components/layout/Navbar";
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <ProtectedRoute>
-      <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
+      <div className="flex h-screen overflow-hidden bg-background">
         {/* Sidebar for desktop */}
-        <div className="hidden md:flex w-64 flex-col border-r bg-white dark:bg-slate-900">
+        <div className="hidden md:flex w-64 flex-col border-r bg-card">
           <Sidebar />
         </div>
         
